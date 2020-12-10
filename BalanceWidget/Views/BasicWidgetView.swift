@@ -8,14 +8,17 @@
 import SwiftUI
 import WidgetKit
 
-struct MediumWidgetView: View {
-	@State var accounts = getAccounts().sorted{ $0.realAmount > $1.realAmount}
+struct BasicWidgetView: View {
+	@State var accounts: [Account]
+	@State var sum = 0
 	var body: some View {
 		ForEach(0..<3){ i in
 			if i != 0 {
 				Divider()
+					.padding(.vertical,0)
 			}
-			AccountView(acct: $accounts[i])
+			GeneralWidgetView(acct: $accounts[i])
+				.padding(.vertical,-5)
 		}
 		.onAppear(){
 			WidgetCenter.shared.reloadAllTimelines()
