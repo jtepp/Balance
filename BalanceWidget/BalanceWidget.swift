@@ -11,7 +11,7 @@ import Intents
 
 struct Provider: TimelineProvider {
 	func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-		let entry = SimpleEntry(date: Date())
+		let entry = SimpleEntry(date: Date(), accounts: getAccounts().sorted{ $0.realAmount > $1.realAmount})
 		completion(entry)
 	}
 	
@@ -22,7 +22,7 @@ struct Provider: TimelineProvider {
 		let currentDate = Date()
 		for hourOffset in 0 ..< 5 {
 			let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-			let entry = SimpleEntry(date: entryDate)
+			let entry = SimpleEntry(date: entryDate, accounts: getAccounts().sorted{ $0.realAmount > $1.realAmount})
 			entries.append(entry)
 		}
 		
@@ -31,7 +31,7 @@ struct Provider: TimelineProvider {
 	}
 	
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), accounts: [Account.empty,Account.empty,Account.empty])
     }
 
 
@@ -39,6 +39,7 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+	let accounts:[Account]
 }
 
 struct BalanceWidgetEntryView : View {
@@ -52,10 +53,9 @@ struct BalanceWidgetEntryView : View {
 @main
 struct BalanceWidget: Widget {
     let kind: String = "BalanceWidget"
-
     var body: some WidgetConfiguration {
-		StaticConfiguration(kind: kind, provider: Provider()){ _ in
-			MediumWidgetView()
+		StaticConfiguration(kind: kind, provider: Provider()){ entry in
+			WidgetView(accounts: entry.accounts)
 		}
         .configurationDisplayName("Balance Widget")
 		.description("Display all your Coinbase Balances on your home screen")
@@ -65,7 +65,7 @@ struct BalanceWidget: Widget {
 
 struct BalanceWidget_Previews: PreviewProvider {
     static var previews: some View {
-        BalanceWidgetEntryView(entry: SimpleEntry(date: Date()))
+		BalanceWidgetEntryView(entry: SimpleEntry(date: Date(), accounts: [Account.empty,Account.empty,Account.empty]))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

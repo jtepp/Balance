@@ -64,7 +64,7 @@ struct Home: View {
 				Divider()
 			}
 			AccountView(acct: $accts[index])
-				.padding(.top)
+				.padding(.vertical)
 				.padding(.horizontal)
 		}
 		
