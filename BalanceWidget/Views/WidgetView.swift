@@ -23,13 +23,16 @@ struct WidgetView: View {
 			}
 			
 			VStack {
-				ForEach(0..<3){ i in
+				ForEach(0..<(family == .systemLarge ? 7 : 3)){ i in
+					if i < accounts.count {
 					if i != 0 {
 						Divider()
-//							.padding(.vertical,-10)
+						//							.padding(.vertical,-10)
 					}
-					WidgetAccountView(acct: $accounts[i])
-						.padding(.vertical,1)
+					
+						WidgetAccountView(acct: $accounts[i] )
+							.padding(.vertical,1)
+					}
 				}
 			}
 			.padding(.vertical, 6)
