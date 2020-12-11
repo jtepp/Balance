@@ -24,8 +24,9 @@ struct WidgetView: View {
 				ForEach(0..<3){ i in
 					
 					WidgetAccountView(acct: $accounts[i])
-						.padding(.vertical,0)
+						.padding(.vertical,-10)
 				}
+				.padding(.vertical, 5)
 				
 			}
 		}
