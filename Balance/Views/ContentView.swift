@@ -35,7 +35,7 @@ struct ContentView: View {
 			
 			
 			//.navigationTitle("$\(moneyString(num:sum))") }
-			
+			.accentColor(Color("coinbase"))
 			.onAppear{
 				accounts = getAccounts()
 			}

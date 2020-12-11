@@ -9,26 +9,34 @@ import Foundation
 
 
 
-let url = URL(string: "https://allpurpose.netlify.app/.netlify/functions/coinbase")!
+
 
 func getAccounts() -> [Account] {
 	var total = Double()
 	var end = [[String:String]]()
 	var txt = "init"
 	var output = [Account]()
+	let key = UserDefaults.standard.string(forKey: "key") ?? ""
+	let secret = UserDefaults.standard.string(forKey: "secret") ?? ""
+	let url = URL(string: "https://allpurpose.netlify.app/.netlify/functions/coinbase?key=\(key)&secret=\(secret)")!
+	let fail = [Account.empty]
+	
+	if key.count > 2 && secret.count > 2 {
 	do {
 		txt = try String(contentsOf: url)
 	} catch {
 		txt = #"[["error":"failed"]]"#
 		print(false)
+		return fail
 	}
-	
+	if txt != "error" {
 	do {
 		// make sure this JSON is in the format we expect
 		let jend = try JSONSerialization.jsonObject(with: Data(txt.utf8), options: []) as! [[String:String]]
 		end = jend
 	} catch let error as NSError {
 		print("Failed to load: \(error.localizedDescription)")
+		return fail
 	}
 	
 	end.forEach { acct in
@@ -41,8 +49,15 @@ func getAccounts() -> [Account] {
 	}
 	
 	return output
+	}
+	else {
+		return fail
+	}
 	
-	
+	}
+	else {
+		return fail
+	}
 	
 }
 

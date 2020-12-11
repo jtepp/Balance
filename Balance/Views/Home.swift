@@ -83,7 +83,7 @@ struct Home: View {
 				.padding(.horizontal)
 			}
 		}
-		
+		.accentColor(Color("coinbase"))
 		.onAppear{
 			sum = 0
 			if byCAD {
