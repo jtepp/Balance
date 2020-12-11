@@ -20,6 +20,7 @@
 		0C7A87C02581AA19007788B4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE596ED25805F6200FCBCAA /* Account.swift */; };
 		0C7A87C52581AA22007788B4 /* getAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE596EF2580620F00FCBCAA /* getAccounts.swift */; };
 		0C7A87CA2581AA27007788B4 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C331F432581659800D3CF7E /* AccountView.swift */; };
+		0CB72C6B2582E62000FAED9A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB72C6A2582E62000FAED9A /* Settings.swift */; };
 		0CC4FED92581E99F0065B89A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CE596C625805EE400FCBCAA /* Assets.xcassets */; };
 		0CC4FEE32581EA110065B89A /* WidgetAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4FEE22581EA110065B89A /* WidgetAccountView.swift */; };
 		0CE596C325805EDE00FCBCAA /* BalanceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE596C225805EDE00FCBCAA /* BalanceApp.swift */; };
@@ -83,6 +84,7 @@
 		0C7A879E2581A8DF007788B4 /* BalanceWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BalanceWidgetExtension.entitlements; sourceTree = "<group>"; };
 		0C7A87A32581A8F2007788B4 /* Balance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Balance.entitlements; sourceTree = "<group>"; };
 		0C7A87B12581AA02007788B4 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		0CB72C6A2582E62000FAED9A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0CC4FEE22581EA110065B89A /* WidgetAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetAccountView.swift; sourceTree = "<group>"; };
 		0CE596BF25805EDE00FCBCAA /* Balance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE596C225805EDE00FCBCAA /* BalanceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceApp.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE596C425805EDE00FCBCAA /* ContentView.swift */,
+				0CB72C6A2582E62000FAED9A /* Settings.swift */,
 				0C331F482581667B00D3CF7E /* Home.swift */,
 				0C331F432581659800D3CF7E /* AccountView.swift */,
 			);
@@ -416,6 +419,7 @@
 			files = (
 				0CE596F02580620F00FCBCAA /* getAccounts.swift in Sources */,
 				0C331F492581667B00D3CF7E /* Home.swift in Sources */,
+				0CB72C6B2582E62000FAED9A /* Settings.swift in Sources */,
 				0CE596C525805EDE00FCBCAA /* ContentView.swift in Sources */,
 				0CE596C325805EDE00FCBCAA /* BalanceApp.swift in Sources */,
 				0CE596EE25805F6200FCBCAA /* Account.swift in Sources */,

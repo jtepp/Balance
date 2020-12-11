@@ -11,30 +11,33 @@ import SwiftUI
 
 struct ContentView: View {
 	@State var accounts = [Account]()
-	@State var sum = Double()
+	@State var tabSelection = "home"
 	var body: some View {
-		NavigationView{
+//		NavigationView{
 			
-			ScrollView{
-				Home(accts: $accounts, sum: $sum)
-					.font(.system(.body, design: .rounded))
-			}
-			.navigationTitle("$\(moneyString(num:sum))")
-
-			
-			
-			
-			
-		}
-		.onAppear(){
-			accounts = getAccounts().sorted(by: { $0.realAmount > $1.realAmount})
-			//			print(accounts)
-			accounts.forEach { acct in
-				if acct.cumulative.doubleValue > sum {
-					sum = acct.cumulative.doubleValue
+			TabView(selection: $tabSelection) {
+				ScrollView{
+					Home(accts: $accounts)
 				}
+				.tabItem {
+					Image(systemName: "dollarsign.circle.fill")
+					Text("Balances")
+						.font(.system(.body, design: .rounded))
+				}
+				Settings()
+					.tabItem {
+						Image(systemName: "gearshape.2.fill")
+						Text("Settings")
+							.font(.system(.body, design: .rounded))
+					}
 			}
-		}
+			
+			
+			//.navigationTitle("$\(moneyString(num:sum))") }
+			
+			.onAppear{
+				accounts = getAccounts()
+			}
 	}
 }
 

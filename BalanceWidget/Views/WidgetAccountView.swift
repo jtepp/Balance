@@ -23,16 +23,17 @@ struct WidgetAccountView: View {
 				
 				Text(acct.cryptoName)
 					.fontWeight(.bold)
-					.font(.headline)
+					.font(.system(.headline, design: .rounded))
 				Spacer()
 				VStack (alignment: .trailing){
 					Text("$"+moneyString(num: acct.realAmount))
 						.minimumScaleFactor(0.8)
-						.font(.headline)
+						.font(.system(.headline, design: .rounded))
 						
 					Text(String(acct.cryptoAmount) + (family == .systemSmall ? "" : " \(acct.cryptoName)"))
 						.minimumScaleFactor(0.01)
-//						.font(.caption)
+						.font(.system(.body, design: .rounded))
+
 						
 						
 				}

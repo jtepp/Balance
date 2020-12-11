@@ -32,6 +32,7 @@ struct WidgetView: View {
 		.onAppear(){
 			WidgetCenter.shared.reloadAllTimelines()
 			sum = 0
+			accounts = getAccounts().sorted(by: {$0.realAmount > $1.realAmount})
 			accounts.forEach { acct in
 				if acct.cumulative.doubleValue > sum {
 					sum = acct.cumulative.doubleValue

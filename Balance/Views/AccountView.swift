@@ -21,14 +21,14 @@ struct AccountView: View {
 			HStack {
 				
 				Text(acct.cryptoName)
-				.fontWeight(.bold)
-					.font(.headline)
+					.font(.system(.headline, design: .rounded))
+					.bold()
 				Spacer()
 				VStack (alignment: .trailing){
 				Text("$"+moneyString(num: acct.realAmount))
-					.font(.headline)
+					.font(.system(.headline, design: .rounded))
 				Text(String(acct.cryptoAmount)+" \(acct.cryptoName)")
-					.font(.footnote)
+					.font(.system(.footnote, design: .rounded))
 				}
 			}
 			
