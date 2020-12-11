@@ -13,6 +13,7 @@ struct Home: View {
 	@Binding var showAll: Bool
 	@State var byCAD = true
 	@State var sum = Double()
+	@Binding var showHelp:Bool
 	var body: some View {
 		HStack	{
 			Text("$\(moneyString(num:sum))")
@@ -43,6 +44,9 @@ struct Home: View {
 			Button(action: {
 				sum = 0
 				accts = getAccounts()
+				if accts == [Account.empty] || accts.isEmpty {
+					showHelp = true
+				} else { showHelp = false }
 				if byCAD {
 					accts.sort(by: { $0.realAmount > $1.realAmount})
 				} else {
@@ -70,9 +74,18 @@ struct Home: View {
 					
 			}
 		}
-		
+		if showHelp {
+			
+			NavigationLink(destination:Details()
+							.navigationTitle("")
+							.navigationBarHidden(true)){
+					HelpView()
+				
+				
+			}
+		}
 		ForEach(accts.indices, id: \.self) { index in
-			if (!showAll && accts[index].realAmount > 0.00) || showAll {
+			if (!showAll && accts[index].realAmount > 0.00) || showAll && accts != [Account.empty] && !accts.isEmpty{
 				
 			
 //			if index != 0 {
@@ -83,6 +96,8 @@ struct Home: View {
 				.padding(.horizontal)
 			}
 		}
+//		.navigationBarTitle("")
+		.navigationBarHidden(true)
 		.accentColor(Color("coinbase"))
 		.onAppear{
 			sum = 0

@@ -12,13 +12,18 @@ import SwiftUI
 struct ContentView: View {
 	@State var accounts = [Account]()
 	@State var tabSelection = "home"
-	@State var showAll = UserDefaults.standard.bool(forKey: "showAll")
+	@State var showAll = UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "showAll")
+	@State var showHelp = false
 	var body: some View {
 //		NavigationView{
-			
+		NavigationView {
 			TabView(selection: $tabSelection) {
 				ScrollView{
-					Home(accts: $accounts, showAll: $showAll)
+
+						Home(accts: $accounts, showAll: $showAll, showHelp: $showHelp)
+							.navigationTitle("")
+							.navigationBarHidden(true)
+//					}
 				}
 				.tabItem {
 					Image(systemName: "dollarsign.circle.fill")
@@ -26,6 +31,8 @@ struct ContentView: View {
 						.font(.system(.body, design: .rounded))
 				}
 				Settings(showAll: $showAll)
+					.navigationTitle("")
+					.navigationBarHidden(true)
 					.tabItem {
 						Image(systemName: "gearshape.2.fill")
 						Text("Settings")
@@ -33,11 +40,15 @@ struct ContentView: View {
 					}
 			}
 			
+		}
 			
 			//.navigationTitle("$\(moneyString(num:sum))") }
 			.accentColor(Color("coinbase"))
 			.onAppear{
 				accounts = getAccounts()
+				if accounts == [Account.empty] || accounts.isEmpty {
+					showHelp = true
+				} else { showHelp = false }
 			}
 	}
 }

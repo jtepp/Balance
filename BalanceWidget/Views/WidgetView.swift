@@ -9,10 +9,11 @@ import SwiftUI
 import WidgetKit
 
 struct WidgetView: View {
+	
 	@State var accounts: [Account]
 	@State var sum = Double()
 	@Environment(\.widgetFamily) var family
-	@State var showAll = UserDefaults.standard.bool(forKey: "showAll")
+	@State var showAll = UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "showAll")
 	var body: some View {
 		HStack{
 			if family != .systemSmall {
@@ -25,17 +26,20 @@ struct WidgetView: View {
 			
 			VStack {
 				ForEach(0..<(family == .systemLarge ? 7 : 3)){ i in
-					
-					if (!showAll && accounts[i].realAmount > 0.00) || showAll {
-						if i < accounts.count {
-						if i != 0 {
-							Divider()
-							//							.padding(.vertical,-10)
+					if i < accounts.count {
+					if !accounts.isEmpty	{
+						if (!showAll && accounts[i].realAmount > 0.00) || showAll {
+							
+							if i != 0 {
+								Divider()
+								//							.padding(.vertical,-10)
+							}
+							
+								WidgetAccountView(acct: $accounts[i] )
+									.padding(.vertical,1)
+							}
 						}
 						
-							WidgetAccountView(acct: $accounts[i] )
-								.padding(.vertical,1)
-						}
 					}
 				}
 			}

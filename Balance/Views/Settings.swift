@@ -17,7 +17,7 @@ struct Settings: View {
 				Toggle("Show assets with $0.00", isOn: $showAll)
 					.font(.system(.body, design: .rounded))
 					.onChange(of: showAll){ _ in
-						UserDefaults.standard.set(showAll, forKey: "showAll")
+						UserDefaults.init(suiteName: "group.jtepp.Balance")!.set(showAll, forKey: "showAll")
 					}
 					.padding()
 				NavigationLink(destination: Details()){

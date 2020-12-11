@@ -16,9 +16,9 @@ func getAccounts() -> [Account] {
 	var end = [[String:String]]()
 	var txt = "init"
 	var output = [Account]()
-	let key = UserDefaults.standard.string(forKey: "key") ?? ""
-	let secret = UserDefaults.standard.string(forKey: "secret") ?? ""
-	let url = URL(string: "https://allpurpose.netlify.app/.netlify/functions/coinbase?key=\(key)&secret=\(secret)")!
+	let key = UserDefaults.init(suiteName: "group.jtepp.Balance")!.string(forKey: "key") ?? ""
+	let secret = UserDefaults.init(suiteName: "group.jtepp.Balance")!.string(forKey: "secret") ?? ""
+	let url = URL(string: "https://allpurpose.netlify.app/.netlify/functions/coinbase?key=\(friendlyString(s:key))&secret=\(friendlyString(s:secret))")!
 	let fail = [Account.empty]
 	
 	if key.count > 2 && secret.count > 2 {
@@ -65,4 +65,12 @@ func moneyString(num: Double) -> String {
 	let n = NumberFormatter()
 		n.minimumFractionDigits = 2
 	return n.string(for: num)!
+}
+
+func friendlyString(s:String) -> String {
+	var q = s.replacingOccurrences(of: " ", with: "")
+	q = q.replacingOccurrences(of: "?", with: "")
+	q = q.replacingOccurrences(of: "&", with: "")
+	q = q.replacingOccurrences(of: "/", with: "")
+	return q
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0C331F442581659800D3CF7E /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C331F432581659800D3CF7E /* AccountView.swift */; };
 		0C331F492581667B00D3CF7E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C331F482581667B00D3CF7E /* Home.swift */; };
+		0C386304258348DD00230B35 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB72C79258310C400FAED9A /* Details.swift */; };
+		0C38631825834FB800230B35 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C38631725834FB800230B35 /* HelpView.swift */; };
 		0C7A87872581A8C4007788B4 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7A87862581A8C4007788B4 /* WidgetKit.framework */; };
 		0C7A87892581A8C4007788B4 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7A87882581A8C4007788B4 /* SwiftUI.framework */; };
 		0C7A878C2581A8C4007788B4 /* BalanceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7A878B2581A8C4007788B4 /* BalanceWidget.swift */; };
@@ -75,6 +77,7 @@
 /* Begin PBXFileReference section */
 		0C331F432581659800D3CF7E /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		0C331F482581667B00D3CF7E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		0C38631725834FB800230B35 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		0C7A87842581A8C4007788B4 /* BalanceWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BalanceWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7A87862581A8C4007788B4 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0C7A87882581A8C4007788B4 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,7 @@
 				0CE596C425805EDE00FCBCAA /* ContentView.swift */,
 				0CB72C79258310C400FAED9A /* Details.swift */,
 				0CB72C6A2582E62000FAED9A /* Settings.swift */,
+				0C38631725834FB800230B35 /* HelpView.swift */,
 				0C331F482581667B00D3CF7E /* Home.swift */,
 				0C331F432581659800D3CF7E /* AccountView.swift */,
 			);
@@ -412,6 +416,7 @@
 				0C7A87C02581AA19007788B4 /* Account.swift in Sources */,
 				0C7A878C2581A8C4007788B4 /* BalanceWidget.swift in Sources */,
 				0C7A87C52581AA22007788B4 /* getAccounts.swift in Sources */,
+				0C386304258348DD00230B35 /* Details.swift in Sources */,
 				0C7A87912581A8C8007788B4 /* BalanceWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +428,7 @@
 				0CE596F02580620F00FCBCAA /* getAccounts.swift in Sources */,
 				0C331F492581667B00D3CF7E /* Home.swift in Sources */,
 				0CB72C6B2582E62000FAED9A /* Settings.swift in Sources */,
+				0C38631825834FB800230B35 /* HelpView.swift in Sources */,
 				0CE596C525805EDE00FCBCAA /* ContentView.swift in Sources */,
 				0CE596C325805EDE00FCBCAA /* BalanceApp.swift in Sources */,
 				0CB72C7A258310C400FAED9A /* Details.swift in Sources */,
