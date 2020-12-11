@@ -10,6 +10,7 @@ import WidgetKit
 
 struct Home: View {
 	@Binding var accts: [Account]
+	@Binding var showAll: Bool
 	@State var byCAD = true
 	@State var sum = Double()
 	var body: some View {
@@ -71,17 +72,20 @@ struct Home: View {
 		}
 		
 		ForEach(accts.indices, id: \.self) { index in
+			if (!showAll && accts[index].realAmount > 0.00) || showAll {
+				
+			
 //			if index != 0 {
 				Divider()
 //			}
 			AccountView(acct: $accts[index])
 				.padding(.vertical)
 				.padding(.horizontal)
+			}
 		}
 		
 		.onAppear{
 			sum = 0
-			accts = getAccounts()
 			if byCAD {
 				accts.sort(by: { $0.realAmount > $1.realAmount})
 			} else {
