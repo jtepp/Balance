@@ -17,18 +17,23 @@ struct WidgetView: View {
 			if family != .systemSmall {
 				Text("$\(moneyString(num:sum))")
 					.bold()
-				Divider()
+				Rectangle()
+					.frame(width: 1, height: 500, alignment: .center)
+					.foregroundColor(.gray)
 			}
 			
 			VStack {
 				ForEach(0..<3){ i in
-					
+					if i != 0 {
+						Divider()
+//							.padding(.vertical,-10)
+					}
 					WidgetAccountView(acct: $accounts[i])
-						.padding(.vertical,-10)
+						.padding(.vertical,1)
 				}
-				.padding(.vertical, 5)
-				
 			}
+			.padding(.vertical, 6)
+			.padding(.horizontal, family == .systemSmall ? 4 : 0)
 		}
 		.onAppear(){
 			WidgetCenter.shared.reloadAllTimelines()
