@@ -25,8 +25,8 @@ struct Provider: TimelineProvider {
 			let entry = SimpleEntry(date: entryDate, accounts: getAccounts().sorted{ $0.realAmount > $1.realAmount})
 			entries.append(entry)
 		}
-		
-		let timeline = Timeline(entries: entries, policy: .atEnd)
+		let next = Calendar.current.date(byAdding: .minute, value: 1, to: currentDate)!
+		let timeline = Timeline(entries: entries, policy: .after(next))
 		completion(timeline)
 	}
 	
