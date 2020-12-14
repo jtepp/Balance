@@ -11,7 +11,7 @@ let zero:NSString = "0"
 
 struct Account: Equatable {
 	let name: String
-	let buy: String
+	let buy: NSString
 	let cryptoName: String
 	let cryptoAmount: Double
 	let realName: String
