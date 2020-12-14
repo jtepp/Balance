@@ -21,11 +21,15 @@ struct WidgetAccountView: View {
 				.minimumScaleFactor(0.5)
 			
 			HStack {
-				
-				Text(acct.cryptoName)
-					.fontWeight(.bold)
-					.font(.system(.headline, design: .rounded))
-					.minimumScaleFactor(0.5)
+				VStack {
+					Text(acct.cryptoName)
+						.fontWeight(.bold)
+						.font(.system(.headline, design: .rounded))
+						.minimumScaleFactor(0.5)
+					Text("@\(acct.buy)")
+						.minimumScaleFactor(0.01)
+						.font(.system(.caption2, design: .rounded))
+				}
 				Spacer()
 				VStack (alignment: .trailing){
 					Text("$"+moneyString(num: acct.realAmount))

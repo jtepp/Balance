@@ -15,15 +15,14 @@ struct ContentView: View {
 	@State var showAll = UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "showAll")
 	@State var showHelp = false
 	var body: some View {
-//		NavigationView{
-		NavigationView {
+
 			TabView(selection: $tabSelection) {
 				ScrollView{
 
 						Home(accts: $accounts, showAll: $showAll, showHelp: $showHelp)
 							.navigationTitle("")
 							.navigationBarHidden(true)
-//					}
+
 				}
 				.tabItem {
 					Image(systemName: "dollarsign.circle.fill")
@@ -40,9 +39,8 @@ struct ContentView: View {
 					}
 			}
 			
-		}
-			
-			//.navigationTitle("$\(moneyString(num:sum))") }
+		
+		
 			.accentColor(Color("coinbase"))
 			.onAppear{
 				accounts = getAccounts()

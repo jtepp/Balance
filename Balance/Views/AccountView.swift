@@ -19,10 +19,13 @@ struct AccountView: View {
 				.contentShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
 			
 			HStack {
-				
-				Text(acct.cryptoName)
-					.font(.system(.headline, design: .rounded))
-					.bold()
+				VStack {
+					Text(acct.cryptoName)
+						.font(.system(.headline, design: .rounded))
+						.bold()
+					Text("@\(acct.buy)")
+						.font(.system(.footnote, design: .rounded))
+				}
 				Spacer()
 				VStack (alignment: .trailing){
 				Text("$"+moneyString(num: acct.realAmount))
