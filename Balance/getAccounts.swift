@@ -45,7 +45,7 @@ func getAccounts() -> [Account] {
 		total += rA.doubleValue
 		
 		
-		output.append( Account(name: acct["name"] ?? "name", cryptoName: acct["cryptoName"] ?? "bn", cryptoAmount: cA.doubleValue, realName: acct["realName"] ?? "nn", realAmount: rA.doubleValue, id: acct["id"] ?? "id", cumulative: moneyString(num: total) as! NSString))
+		output.append( Account(name: acct["name"] ?? "name",buy: acct["buy"] ?? "0", cryptoName: acct["cryptoName"] ?? "bn", cryptoAmount: cA.doubleValue, realName: acct["realName"] ?? "nn", realAmount: rA.doubleValue, id: acct["id"] ?? "id", cumulative: moneyString(num: total) as! NSString))
 	}
 	
 	return output
