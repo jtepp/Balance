@@ -20,7 +20,7 @@ struct Provider: TimelineProvider {
 		
 		// Generate a timeline consisting of five entries an hour apart, starting from the current date.
 
-		let entryDate = Date()
+		let entryDate = Date(timeIntervalSinceNow: 0)
 		var acctEntrance = getAccounts().sorted{ $0.realAmount > $1.realAmount}
 		let byCrypto = UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "byCrypto")
 		if byCrypto {
@@ -29,7 +29,7 @@ struct Provider: TimelineProvider {
 			let entry = SimpleEntry(date: entryDate, accounts: acctEntrance)
 			entries.append(entry)
 		
-		let next = Calendar.current.date(byAdding: .second, value: 30, to: Date())!
+		let next = Calendar.current.date(byAdding: .second, value: 30, to: Date(timeIntervalSinceNow: 0))!
 		let timeline = Timeline(entries: entries, policy: .after(next))
 		completion(timeline)
 	}
