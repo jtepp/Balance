@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Settings: View {
 	@Binding var showAll: Bool
+	@State var byCrypto =  UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "byCrypto")
 	var body: some View {
 		NavigationView	{
 			ScrollView {
@@ -20,6 +21,14 @@ struct Settings: View {
 						UserDefaults.init(suiteName: "group.jtepp.Balance")!.set(showAll, forKey: "showAll")
 					}
 					.padding()
+				
+				Toggle("Sort coins by crypto amounts", isOn: $byCrypto)
+					.font(.system(.body, design: .rounded))
+					.onChange(of: byCrypto){ _ in
+						UserDefaults.init(suiteName: "group.jtepp.Balance")!.set(byCrypto, forKey: "byCrypto")
+					}
+					.padding()
+				
 				NavigationLink(destination: Details()){
 					Text("API Configuration")
 						.foregroundColor(.white)
