@@ -50,6 +50,10 @@ struct WidgetView: View {
 			WidgetCenter.shared.reloadAllTimelines()
 			sum = 0
 			accounts = getAccounts().sorted(by: {$0.realAmount > $1.realAmount})
+			let byCrypto = UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "byCrypto")
+			if byCrypto {
+				accounts.sort{$0.cryptoAmount > $1.cryptoAmount}
+			}
 			accounts.forEach { acct in
 				if acct.cumulative.doubleValue > sum {
 					sum = acct.cumulative.doubleValue

@@ -36,8 +36,8 @@ struct WidgetAccountView: View {
 						.minimumScaleFactor(0.6)
 						.font(.system(.headline, design: .rounded))
 						
-					Text((family == .systemSmall ? String(acct.cryptoAmount).truncated(limit: 5) : String(acct.cryptoAmount)) + (family == .systemSmall ? "" : " \(acct.cryptoName)"))
-						.minimumScaleFactor(0.05)
+					Text((family == .systemSmall ? String(String(acct.cryptoAmount).prefix(6)) : String(acct.cryptoAmount)) + (family == .systemSmall ? "" : " \(acct.cryptoName)"))
+						.minimumScaleFactor(0.01)
 						.font(.system(.caption2, design: .rounded))
 
 						
@@ -50,27 +50,3 @@ struct WidgetAccountView: View {
 	}
 }
 
-extension String {
-	enum TruncationPosition {
-		case head
-		case middle
-		case tail
-	}
-	
-	func truncated(limit: Int, position: TruncationPosition = .tail, leader: String = "...") -> String {
-		guard self.count > limit else { return self }
-		
-		switch position {
-			case .head:
-				return leader + self.suffix(limit)
-			case .middle:
-				let headCharactersCount = Int(ceil(Float(limit - leader.count) / 2.0))
-				
-				let tailCharactersCount = Int(floor(Float(limit - leader.count) / 2.0))
-				
-				return "\(self.prefix(headCharactersCount))\(leader)\(self.suffix(tailCharactersCount))"
-			case .tail:
-				return self.prefix(limit) + leader
-		}
-	}
-}
