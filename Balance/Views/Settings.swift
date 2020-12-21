@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct Settings: View {
 	@Binding var showAll: Bool
@@ -19,13 +20,15 @@ struct Settings: View {
 					.font(.system(.body, design: .rounded))
 					.onChange(of: showAll){ _ in
 						UserDefaults.init(suiteName: "group.jtepp.Balance")!.set(showAll, forKey: "showAll")
+						WidgetCenter.shared.reloadAllTimelines()
 					}
 					.padding()
 				
-				Toggle("Sort coins by crypto amounts", isOn: $byCrypto)
+				Toggle("Sort coins by crypto amounts on widget", isOn: $byCrypto)
 					.font(.system(.body, design: .rounded))
 					.onChange(of: byCrypto){ _ in
 						UserDefaults.init(suiteName: "group.jtepp.Balance")!.set(byCrypto, forKey: "byCrypto")
+						WidgetCenter.shared.reloadAllTimelines()
 					}
 					.padding()
 				
