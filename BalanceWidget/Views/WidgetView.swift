@@ -47,7 +47,7 @@ struct WidgetView: View {
 			.padding(.horizontal, family == .systemSmall ? 4 : 0)
 		}
 		.onAppear(){
-			WidgetCenter.shared.reloadAllTimelines()
+//			WidgetCenter.shared.reloadAllTimelines()
 			sum = 0
 			accounts = getAccounts().sorted(by: {$0.realAmount > $1.realAmount})
 			let byCrypto = UserDefaults.init(suiteName: "group.jtepp.Balance")!.bool(forKey: "byCrypto")
