@@ -12,9 +12,11 @@ Balance's backend runs over the [Coinbase Node.js package](https://www.npmjs.com
 
 
 Home screen with balances:
+
 ![](https://i.imgur.com/Do7rq4o_d.webp?maxwidth=360&fidelity=grand)
 
-Settings page to configure your Coinbase API
+Settings page to configure your Coinbase API:
+
 ![](https://i.imgur.com/TvSKQz2_d.webp?maxwidth=360&fidelity=grand)
 
 
