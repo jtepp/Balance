@@ -5,9 +5,9 @@
 [![License][license-image]][license-url]
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
-![](https://i.imgur.com/Do7rq4o_d.webp?maxwidth=760&fidelity=grand)
+![](https://i.imgur.com/Do7rq4o_d.webp?maxwidth=360&fidelity=grand)
 
-![](https://i.imgur.com/TvSKQz2_d.webp?maxwidth=760&fidelity=grand)
+![](https://i.imgur.com/TvSKQz2_d.webp?maxwidth=360&fidelity=grand)
 
 
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
