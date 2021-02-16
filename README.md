@@ -11,6 +11,14 @@ The main feature of Balance's widget is that it shows your balances in real/cryp
 Balance's backend runs over the [Coinbase Node.js package](https://www.npmjs.com/package/coinbase), through a serverless function behind [my website](jacobtepperman.com)
 
 
+The small widget:
+
+![](https://i.imgur.com/t7I0xrN.png)
+
+The medium widget: (Large has the same content)
+
+![](https://i.imgur.com/qiZu1SS.png)
+
 Home screen with balances:
 
 ![](https://i.imgur.com/Do7rq4o_d.webp?maxwidth=360&fidelity=grand)
